@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void) {
+    // Seed the random number generator with the current time
+    srand(time(NULL));
+    
+    // Generate a random number between 1 and 100
+    int randomNumber = (rand() % 100) + 1;
+    
+    // printf("Random number: %d\n", randomNumber);
+    int guess;
+    printf("Guess a number between 1 and 100:\n");
+    printf("You have 10 chances:\n");
+   
+    for (int i = 0; i <= 10; i++)
+    {
+        scanf("%d", &guess);
+        if (guess == randomNumber){
+            printf("Congratulations! You guessed the number.\n");
+            printf("You guessed the number in %d attempts\n", i);
+            break;
+        }
+        else if ( guess > randomNumber){
+            printf("Lower number please\n");
+        }
+        else if (guess < randomNumber){
+            printf("Higher number please\n");
+        }
+        else if (i == 10){
+            printf("You have used all your chances\n");
+        }
+        else
+        {
+            printf("Invalid input\n");
+            break;
+        }
+        
+        
+    }
+    
+    return 0;
+}
